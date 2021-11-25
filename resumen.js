@@ -34,7 +34,7 @@ app.set('views', path.join(__dirname, 'src/views'))
 app.set('view engine', 'hbs');
 // servidor
 app.listen(3000, () => {
-    console.log(`el servidor esta corriendo en http://localhost:${3000}`)
+    console.log(`el servidor esta corriendo en http://localhost:$ {3000}`)
   })
 */
 
@@ -53,6 +53,7 @@ export default routesProducts
 
 /*
 export const nombreFuncion = async (req,res)=>{
+//nosotros no usamos async porque es para sincronizar datos en un formulario
 
   res.status(200).render('nombre_pagina_hbs')
 }
@@ -62,3 +63,6 @@ export const nombreFuncion = async (req,res)=>{
 // agregar a package.json =>   "type": "module",
 // inciar el servidor con npm start
 // instalar nodemon y agregar en el package.json "start":"nodemon server.js"  (para que el servidor se actualize automaticamente cuando hacemos un cambio)
+// una vez instalado nodemon iniciar servidor con npm run dev Instruccion que ejecuta automaticamente el servidor 
+// Cuando se realize cambios para actualizar bajar servidor con la combinacion de teclas ctrl+c luego del menu opcion S
+// Para levantar servidor instruccion npm run dev (dev es inventada por la persona es parte de la instruccion)
