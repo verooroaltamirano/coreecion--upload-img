@@ -1,16 +1,17 @@
 {{> navbar}}
 
-
-<div class="row">
+<div class="row justify content-around">
+  <div class="row col-4 mt-4 mb-3">
     {{#each products}}
 
-    <div class="card" style="width: 18rem;">
+      <div class="card" style="width: 18rem;">
          <img class="card-img-top" src="./.." alt="Card image cap">
          <div class="card-body">
             <h5 class="card-title">{{name}} <b>Articulos para el hogar</b> </h5>
-            <p class="card-text">Precio del producto es {{price}} Hay {{stock}} Venta.</p>
+            <p class="card-text">Precio del producto es {{price}} Hay disponible {{stock}} unidades para la Venta.</p>
             <a href="#" class="btn btn-danger"> <b>Comprar</b> </a>
         </div>
-    </div>
+     </div>
     {{/each}}
+ </div>
 </div>
