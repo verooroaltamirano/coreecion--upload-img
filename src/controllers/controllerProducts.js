@@ -13,8 +13,11 @@ export const create = (req,res) =>{
    let product = req.body
    product.id = Math.floor(Math.random() * 500000)
    products.push(product)
+
+   
    console.log(products)
    res.status(200).redirect('/productos')
+
 }
 
 export const del =(req, res) => {

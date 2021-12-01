@@ -1,42 +1,56 @@
 {{> navbar}}
 <h1>Listado de Productos <br></h1>
-<form action="/productos" method="post">
-    <input type="text" name="name" placeholder="Ingrese Producto">
-    <input type="number" name="price" placeholder="Ingrese Precio">
-    <input type="number" name="stock" placeholder="Ingrese Stock">
-    <input type="file" >
-    <button type="submit" <b> Crear Producto </b> </button>
+
+<form class="row" action="/productos" method="post">
+  <div class="col-md-9 row">
+    <input class="col-md-5 m-3" type="text" name="name" placeholder="Ingrese Producto" required>
+    <input class="col-md-5 m-3" type="number" name="price" placeholder="Ingrese Precio" required>
+    <input class="col-md-5 m-3" type="number" name="stock" placeholder="Ingrese Stock" required>
+    <input class="col-md-5 m-3" type="file" name="url" required >
+    <select name="category" required  >
+  <option value="Calzado-Femenino" selected> Calzado Femenino</option>
+  <option value="Calzado-Masculino">Calzado Masculino</option>
+  <option value="Hardware">Hardware</option>
+  <option value="Moto">Moto</option>
+  <option value="Auto">Auto</option>
+  <option value="Electro">Electro </option>
+  <option value="Ropa-Femenina">Ropa Femenina</option>
+  <option value="Ropa-Masculina">Ropa Masculina</option>
+  <option value="Book-Religion">Book Religion</option>
+  <option value="Arte">Arte</option>
+  <option value="Fiestas-Navideñas">Fiestas Navideñas</option>
+</select>
+  </div>  
+    <button class="col-md-2 mx-3 btn btn-success" type="submit" <b> Crear Producto </b> </button>
  
 </form>
-<div class="row justify content-around">
+<div class="row justify-content-around">
 {{#each products}}
 
- <div class="mt-2 mb-3 col-4">
-    <div class="card" style="width: 18rem;">
-      <img src="./" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">{{name}}</h5>
-      <p class="card-text">El precio es {{price}} $ con stock de {{stock}}</p>
-
-   <form action="/productos?_method=delete" method="post">
+    <div class="col-md-3 mx-5 mt-5 tarjeta p-3" >
+      <img src="{{url}}" class="card-img-top" alt="...">
+    <div class="row justify-content-around  ">
+   <form class="col-md-12 row justify-content-around"  action="/productos?_method=PUT" method="post">
+       <div class="row justify-content-around col-md-12 mb-2">
        <input type="hidden" name="id" value={{id}}>
-       <h6>Nombre:</h6>
-       <input name="name" placeholder={{name}}>
-       <h6>Precio:</h6>
-       <input name="price" placeholder={{price}}>
-       <h6>Stock:</h6>
-       <input name="stock" placeholder={{stock}}>
-       <button type="submit"> <b>Borrar</b> </button>
+       <label class="col-md-4 p-0 text-center">Nombre:</label>
+       <input class="col-md-8" name="name" placeholder="{{name}}">
+       <label class="col-md-4 p-0 text-center">Precio:</label>
+       <input class="col-md-8" name="price" placeholder={{price}}>
+       <label class="col-md-4 p-0 text-center">Stock:</label>
+       <input class="col-md-8" name="stock" placeholder={{stock}}>
+        </div>
+       <button class="btn btn-success col-md-6 m-1" type="submit"> <b>Actualizar</b> </button>
    </form>
 
-  <form action="/productos?_method=PUT" method="post">
+  <form class="col-md-12 row justify-content-around"  action="/productos?_method=delete" method="post">
       <input type="hidden" name="id" value={{id}}>
       
-      <button type="submit"> <b> Update </b> </button>
+      <button  class="btn btn-danger col-md-6 m-1" type="submit"> <b>Borrar</b> </button>
+      </form> 
      </div>
     </div>
-   </div>
-  </form>
+ 
 
 {{/each}}
 </div>

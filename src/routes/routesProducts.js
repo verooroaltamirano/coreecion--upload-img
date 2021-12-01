@@ -6,6 +6,7 @@ const routesProducts = (app) => {
     app.post('/productos',controllerProducts.create)
     app.delete('/productos', controllerProducts.del)
     app.put('/productos', controllerProducts.update)
+    
     }
     
 export default routesProducts
