@@ -1,12 +1,12 @@
 {{> navbar}}
 <h1>Listado de Productos <br></h1>
 
-<form class="row" action="/productos" method="post">
+<form class="row" action="/productos" method="post" enctype="multipart/form-data">
   <div class="col-md-9 row">
     <input class="col-md-5 m-3" type="text" name="name" placeholder="Ingrese Producto" required>
     <input class="col-md-5 m-3" type="number" name="price" placeholder="Ingrese Precio" required>
     <input class="col-md-5 m-3" type="number" name="stock" placeholder="Ingrese Stock" required>
-    <input class="col-md-5 m-3" type="file" name="url" required >
+    <input class="col-md-5 m-3" type="file" name="url" accept="image/x-png,image/gif,image/jpeg" required >
     <select name="category" required  >
   <option value="Calzado-Femenino" selected> Calzado Femenino</option>
   <option value="Calzado-Masculino">Calzado Masculino</option>
@@ -28,8 +28,8 @@
 <div class="row justify-content-around">
 {{#each products}}
 
-    <div class="col-md-3 mx-5 mt-5 tarjeta p-3" >
-      <img src="{{url}}" class="card-img-top" alt="...">
+    <div class="col-md-3 mx-4 mt-5 tarjeta p-3" >
+      <img src="./img/productos/{{url}}" class="card-img-top" alt="...">
     <div class="row justify-content-around  ">
    <form class="col-md-12 row justify-content-around"  action="/productos?_method=PUT" method="post">
        <div class="row justify-content-around col-md-12 mb-2">
@@ -46,9 +46,10 @@
 
   <form class="col-md-12 row justify-content-around"  action="/productos?_method=delete" method="post">
       <input type="hidden" name="id" value={{id}}>
-      
       <button  class="btn btn-danger col-md-6 m-1" type="submit"> <b>Borrar</b> </button>
       </form> 
+
+
      </div>
     </div>
  

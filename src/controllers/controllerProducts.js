@@ -12,7 +12,14 @@ export const create = (req,res) =>{
    
    let product = req.body
    product.id = Math.floor(Math.random() * 500000)
+   product.url= product.id +".jpg"
    products.push(product)
+
+   const EDFile = req.files.url
+    EDFile.mv(`./public/img/productos/${product.url}`,err => {
+      if(err) return res.status(500).send({ message : err })
+      return res.status(200).render("nofound",{message:"no se encontro el Producto"})
+      })
 
    
    console.log(products)
